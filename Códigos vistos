@@ -1,0 +1,33 @@
+protocol Atleta{
+	var deporte: String {get}
+}
+
+protocol Matematico{
+	var tipoMatematico: String {get}
+}
+
+extension Matematico{
+	func muestra() -> String{
+		return "sé matematicas"
+	}
+}
+
+protocol cantante: Atleta{
+	var rola: String {get set}
+	
+	func cantar() 
+}
+
+class Alumno: cantante, Matematico{
+	var deporte: String = "futbol"
+	var rola: String = "No confies en mi"
+	
+	
+	func cantar(){
+		print ("cantando.... \(self.rola)")
+	}
+}
+
+
+let magno = Alumno()
+magno.cantar()
