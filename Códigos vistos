@@ -31,3 +31,98 @@ class Alumno: cantante, Matematico{
 
 let magno = Alumno()
 magno.cantar()
+
+
+
+///patron de diseño DECORATOR
+
+protocol Taco{
+	var costo: Double{get}
+	var desc: String{get}
+	
+}
+
+class TacoMaciza: Taco{
+	
+	var costo:Double{
+		get{
+			return 15.0
+		}
+	}
+	
+	var desc: String{
+		get{
+			return "Taco de Maciza"
+		}
+	}
+}
+
+
+//decorador
+
+class TacoDecorador: Taco{
+	var costo:Double{
+		get{
+			return tacoInstancia.costo
+		}
+	}
+	
+	var desc: String{
+		get{
+			return tacoInstancia.desc
+		}
+	}
+	
+	let tacoInstancia: Taco
+	
+	required init (taco:Taco){
+		self.tacoInstancia = taco
+	}
+}
+
+final class Cebollas: TacoDecorador{
+	override var costo: Double{
+		get{
+			return tacoInstancia.costo + 5.0
+		}
+	}
+	
+	override var desc: String{
+		get{
+			return tacoInstancia.desc + ", cobollas"
+		}
+	}
+	
+	required init (taco: Taco){
+		super.init(taco:taco)
+	}
+}
+
+final class ChileHabanero: TacoDecorador{
+	override var costo: Double{
+		get{
+			return tacoInstancia.costo + 5.0
+		}
+	}
+	
+	override var desc: String{
+		get{
+			return tacoInstancia.desc + ", chiles habaneros"
+		}
+	}
+	
+	required init (taco: Taco){
+		super.init(taco:taco)
+	}
+}
+
+
+
+var tacomaciza:Taco = TacoMaciza()
+print("\(tacomaciza.desc) cuesta \(tacomaciza.costo)")
+
+tacomaciza = Cebollas(taco: tacomaciza)
+print("\(tacomaciza.desc) cuesta \(tacomaciza.costo)")
+
+tacomaciza = ChileHabanero(taco: tacomaciza)
+print("\(tacomaciza.desc) cuesta \(tacomaciza.costo)")
