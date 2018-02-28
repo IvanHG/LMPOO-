@@ -1,10 +1,11 @@
 //funcion para desplegar la alerta// ***IMPLEMENTAR***
 
 func mostrarMensageAlerta(mensageUsuario:String){
-	var alerta = UIAlertController(title:"", message:mensageUsuario, preferredStyle:UIAlertControllerStyle.Alert)
+	var alerta = UIAlertController(title:"", message:mensageUsuario, preferredStyle:UIAlertControllerStyle.alert)
 	
-	//se pueden agregar 2 opciones para proseguir, es decir 2 let okAction
-	let okAction = UIAlertAction(title:"",style:UIAlertActionStyle.Default, handler:nil)
+	//se pueden agregar 2 opciones para proseguir, es decir, 2 let okAction
+	
+	let okAction = UIAlertAction(title:"OK",style:UIAlertActionStyle.default, handler:nil)
 	
 	alerta.addAction(okAction)
 	self.presentViewController(alerta, animated:true, completion:nil)
