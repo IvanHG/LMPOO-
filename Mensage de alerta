@@ -1,6 +1,6 @@
 //funcion para desplegar la alerta// ***IMPLEMENTAR***
 
-func mostrarMensageAlerta(mensageUsuario:String){
+func mostrarMensageAlerta(_ mensageUsuario:String){
 	var alerta = UIAlertController(title:"", message:mensageUsuario, preferredStyle:UIAlertControllerStyle.alert)
 	
 	//se pueden agregar 2 opciones para proseguir, es decir, 2 let okAction
