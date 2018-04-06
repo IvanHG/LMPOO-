@@ -8,7 +8,7 @@ func mostrarMensageAlerta(_ mensageUsuario:String){
 	let okAction = UIAlertAction(title:"OK",style:UIAlertActionStyle.default, handler:nil)
 	
 	alerta.addAction(okAction)
-	self.presentViewController(alerta, animated:true, completion:nil)
+	present(alerta, animated:true, completion:nil)
 }
 
 // cuando se tenga que usar un mensage de alerta solo implementamos la funcion con su parametro 
